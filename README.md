@@ -1,6 +1,6 @@
 # dagster_llm_finetune
 
-# Overview 
+## Overview 
 
 This repository accompanies the LLM fine-tuning pipelines with LoRA & Dagster blog post. It contains the Dagster project and the notebook which fine-tunes a Large Language model on Dagster slack data. 
 
