@@ -21,6 +21,7 @@ def raw_datasets(config: RawDatasetConfig):
             }
         )
     format_data = pd.DataFrame(format_data)
+    
     train, test= train_test_split(format_data, 
                                    random_state=config.seed, 
                                    train_size=config.train_size)
@@ -28,10 +29,13 @@ def raw_datasets(config: RawDatasetConfig):
     validation, inference = train_test_split(test, 
                                 random_state=config.seed, 
                                 train_size=.8)
+    
     dataset_train = datasets.Dataset.from_pandas(train)
     dataset_validation = datasets.Dataset.from_pandas(validation)
     dataset_inference = datasets.Dataset.from_pandas(inference)
+
     dataset = datasets.DatasetDict({"train": dataset_train, "validation": dataset_validation, "inference": dataset_inference})
+    
     return Output(dataset, metadata= {"Train dataset size": len(dataset_train), "Test dataset size": len(dataset_validation), "Inference dataset size": len(dataset_inference)})
 
 
