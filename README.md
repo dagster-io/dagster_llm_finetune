@@ -1,8 +1,10 @@
 # dagster_llm_finetune
-Dagster llm finetune blog post
-Blog post text is [here](https://docs.google.com/document/d/1hkMZ2vQMnUirFw7X4F9xc-R9FyyRQnLseM5hD5AztXk/edit)
 
-## Install packages (tested with Python 3.10)
+# Overview 
+
+This repository accompanies the LLM fine-tuning pipelines with LoRA & Dagster blog post. It contains the Dagster project and the notebook which fine-tunes a Large Language model on Dagster slack data. 
+
+## Install packages
 
 ```
 poetry install
