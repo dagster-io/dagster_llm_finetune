@@ -49,8 +49,8 @@ def processed_datasets(
         batched=True,
         remove_columns=["input_text", "output_text"],
     )
-    input_lenghts = [len(x) for x in tokenized_inputs["input_ids"]]
-    max_source_lengths = int(np.percentile(input_lenghts, 95))
+    input_lengths = [len(x) for x in tokenized_inputs["input_ids"]]
+    max_source_lengths = int(np.percentile(input_lengths, 95))
     print(f"Max source lengths: {max_source_lengths}")
 
     tokenized_targets = datasets.concatenate_datasets([raw_datasets["train"], raw_datasets["validation"],  raw_datasets["inference"]]).map(
@@ -58,8 +58,8 @@ def processed_datasets(
         batched=True,
         remove_columns=["input_text", "output_text"],
     )
-    target_lenghts = [len(x) for x in tokenized_targets["input_ids"]]
-    max_target_lengths = int(np.percentile(target_lenghts, 95))
+    target_lengths = [len(x) for x in tokenized_targets["input_ids"]]
+    max_target_lengths = int(np.percentile(target_lengths, 95))
     print(f"Max target lengths: {max_target_lengths}")
 
     def preprocess_function(sample, padding="max_length"):
